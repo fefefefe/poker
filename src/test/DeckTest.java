@@ -13,13 +13,13 @@ public class DeckTest {
 		//}
 		
 		// deck size test
-		//System.out.println(deck.getSize());
+		System.out.println(deck.getSize() + " Karten hat das generierte Deck.");
 
 		// test: encoded Deck
 		deck.printDeckEncoded();
 						
 		// test: decoded Deck
 		// arguments: {"fr", "de", "en"}, {"poker", "skat"}
-		deck.printDeckDecoded("en", "poker");
+		deck.printDeckDecoded("fr", "poker");
 	}
 }
