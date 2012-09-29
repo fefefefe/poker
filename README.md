@@ -1,4 +1,0 @@
-poker
-=====
-
-card game Poker
