@@ -1,7 +1,6 @@
 package test;
 
 import poker.*;
-
 public class DeckTest {
 	public static void main(String[] args) {
 		// get a deck to run tests on
