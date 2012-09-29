@@ -13,9 +13,10 @@ public class DeckTest {
 		
 		// deck size test
 		System.out.println(deck.getSize() + " Karten hat das generierte Deck.");
+		System.out.println();
 
 		// test: encoded Deck
-		deck.printDeckEncoded();
+		//deck.printDeckEncoded();
 						
 		// test: decoded Deck
 		// arguments: {"fr", "de", "en"}, {"poker", "skat"}
