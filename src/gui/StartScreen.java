@@ -31,7 +31,8 @@ public class StartScreen {
 	public int nrOfHumanPlayers;
 	
 	/**
-	 * @TODO: variable version needs to be replaced if a global version variable was created  
+	 * @TODO: variable version needs to be replaced when
+	 * 		  a global version variable was created  
 	 */
 	private static final float version=(float) 0.1;
 	private static final Dimension windowDefaultDimension = new Dimension(820,450);
@@ -54,7 +55,7 @@ public class StartScreen {
 		initVariableElements();
 		initLicense();
 		
-		//Only enable pack() is LayoutManager is enabled!
+		//Only enable pack() if LayoutManager is enabled!
 		//propSelection.pack();
 
 		//Show all components on start screen
@@ -62,8 +63,7 @@ public class StartScreen {
 		
 		
 	}
-	private void initLicense() {
-		// TODO Auto-generated method stub
+	private void initLicense() {		
 		JLabel frontImageLicense = new JLabel("GoSco");
 	    
 	    frontImageLicense.setFont( new Font("Serif", Font.PLAIN, 8) );
@@ -130,12 +130,9 @@ public class StartScreen {
 	    startFrame.add(frontImage);	    
 	    startFrame.add(selBuyIn);	    
 	    startFrame.add(selHPlayers);
-	    startFrame.add(heading);
-		
-				
+	    startFrame.add(heading);			
 	}
-	private void initStartFrame(){
-		
+	private void initStartFrame(){	
 		
 		startFrame.setSize(windowDefaultDimension);
 		//Opening window in centered screen position
@@ -156,7 +153,8 @@ public class StartScreen {
 	    JLabel buttonLable = new JLabel("Start");
 	    final JTextField[] playerNamesField = new JTextField[10];
 	    final JLabel[] playersL = new JLabel[10];
-	    
+
+	    //Init text field for entering players names
 	    for(int i=0;i<10;i++){
 	    	playerNamesField[i]= new JTextField();	    
 	    	playersL[i]= new JLabel("Player "+(i+1)+":");
@@ -175,14 +173,16 @@ public class StartScreen {
 	    	}
 	    	startFrame.add(playersL[i]);
 	    	startFrame.add(playerNamesField[i]);
-	    }	    
+	    }
+	    //Init start button
 	    JButton startGame = new JButton();
 	    startGame.setBounds(700, 370, 100, 35);
 	    startGame.add(buttonLable);
 	    
+	    //Init spinners
 	    nrOfHPlayers.setBounds(300, 80, 45, 18);
 	    buyInSpinner.setBounds(300, 100, 45, 18);
-	    
+	    //Label for "start"- button
 	    buttonLable.setFont(new Font("Serif",Font.BOLD,20));
 	    buttonLable.setForeground(Color.BLACK);
 	    buttonLable.setBounds(1, 1, 100, 24);
@@ -190,7 +190,7 @@ public class StartScreen {
 	    /**
 	     * Start-Button Event Features:
 	     * -Put main information to console (Players,BuyIn, ...etc.)
-	     * -Set public Variables of Class
+	     * -Set classes public variables
 	     */
 	    ActionListener startListener = new ActionListener() {
 	        public void actionPerformed( ActionEvent e ) {
@@ -207,9 +207,9 @@ public class StartScreen {
 	        		System.out.println("Player"+(i+1)+": "+playerNames[i]);
 	        	}
 	        	
-	        	//START GAME:
+	        	//START GAME HERE:  needs to replaced 
+	        	//for statement which start poker game
 	        	//Poker game = new Poker();
-
 	        }
 	      };
 	    
@@ -221,6 +221,7 @@ public class StartScreen {
 					if(i > (Integer)nrOfHPlayers.getValue()-1){
 						playerNamesField[i].setVisible(false);
 						playersL[i].setVisible(false);
+						playerNamesField[i].setText("");
 					} else{					
 						playerNamesField[i].setVisible(true);
 						playersL[i].setVisible(true);	
