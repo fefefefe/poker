@@ -1,10 +1,16 @@
 package gui;
 
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -46,6 +52,7 @@ public class StartScreen {
 		initStartFrame();
 		initStaticElements();
 		initVariableElements();
+		initLicense();
 		
 		//Only enable pack() is LayoutManager is enabled!
 		//propSelection.pack();
@@ -54,6 +61,46 @@ public class StartScreen {
 		startFrame.setVisible(true);
 		
 		
+	}
+	private void initLicense() {
+		// TODO Auto-generated method stub
+		JLabel frontImageLicense = new JLabel("GoSco");
+	    
+	    frontImageLicense.setFont( new Font("Serif", Font.PLAIN, 8) );
+	    frontImageLicense.setForeground( Color.BLACK );
+	    frontImageLicense.setBounds(40, 360, 160, 15);
+	    frontImageLicense.setToolTipText("www.iconspedia.com/icon/poker-420-.html");
+	    
+	    MouseListener ml = new MouseListener() {						
+			@Override
+	    	public void mouseReleased(MouseEvent e) {
+			}			
+			@Override
+			public void mousePressed(MouseEvent e) {							
+			}			
+			@Override
+			public void mouseExited(MouseEvent e) {
+			}			
+			@Override
+			public void mouseEntered(MouseEvent e) {								
+			}			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				try
+				{
+				  Desktop.getDesktop().browse( new URI("www.iconspedia.com/icon/poker-420-.html") );				  
+				}
+				catch ( URISyntaxException e0 )
+				{
+				  e0.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}				
+			}
+		};
+		frontImageLicense.addMouseListener(ml);
+	    startFrame.add(frontImageLicense);
 	}
 
 	private void initStaticElements(){
@@ -190,14 +237,5 @@ public class StartScreen {
 	    startFrame.add(buyInSpinner);
 	    startFrame.add(nrOfHPlayers);
 
-	}
-	private JTextField[] initTextField(JTextField[] playerNamesField) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public static void main(String[] args){
-		StartScreen t = new StartScreen();
-	}
-
+	}	
 }
